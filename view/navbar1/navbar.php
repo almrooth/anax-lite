@@ -9,6 +9,10 @@ $navbar = [
             "text" => "Hem",
             "route" => "",
         ],
+        "session" => [
+            "text" => "Session",
+            "route" => "session",
+        ],
         "report" => [
             "text" => "Redovisning",
             "route" => "report",

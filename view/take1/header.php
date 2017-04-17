@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
 
-        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="<?= $app->stylesheet ?>">
 
         <title><?= $title ?></title>
     </head>

@@ -19,6 +19,15 @@ $app->response  = new \Anax\Response\Response();
 $app->url       = new \Anax\Url\Url();
 $app->router    = new \Anax\Route\RouterInjectable();
 $app->view      = new \Anax\View\ViewContainer();
+$app->session   = new \Talm\Session\Session();
+$app->navbar    = new \Talm\Navbar\Navbar();
+$app->calendar  = new \Talm\Calendar\Calendar();
+
+// Update navbar config with values from config file
+$app->navbar->configure("navbar.php");
+
+// Inject $app into navbar
+$app->navbar->setApp($app);
 
 // Init request object
 $app->request->init();
@@ -39,6 +48,9 @@ $app->view->configure("view.php");
 // Update url configuration with values from config file.
 $app->url->configure("url.php");
 $app->url->setDefaultsFromConfiguration();
+
+// Add stylesheet to app
+$app->stylesheet = $app->url->asset("css/style.min.css");
 
 // Load the routes
 require ANAX_INSTALL_PATH . "/config/route.php";
