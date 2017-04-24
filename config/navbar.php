@@ -32,5 +32,10 @@ return [
             "route" => "about",
             "items" => []
         ],
+        "login" => [
+            "text" => "Intranät",
+            "route" => "login",
+            "items" => []
+        ],
     ]
 ];

@@ -54,7 +54,7 @@
 
                     <p>Jag la till session som en del av $app. Därefter så startar jag igång sessionen först i vyerna då det inte alltid behövs en aktiv session. Vidare så sköter jag mestadelen av logiken i routerna förrutom länkarna för de olika knapparna som genereras i vyn.</p>
 
-                    <p><strong>Berätta om hur du löste uppgiften med Tärningsspelet 100/Månadskalendern, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?</p>
+                    <p><strong>Berätta om hur du löste uppgiften med Tärningsspelet 100/Månadskalendern, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?</strong></p>
 
                     <p>Jag valde att göra en månadskalender då det kändes som att det är något som man kan använda sig av senare och för att öva på att hantera datum och tid.</p>
 
@@ -66,9 +66,37 @@
                     
                     <p>I min vy för kalendern blev det tyvärr en hel del PHP-kod, mestadels för att hålla koll på POST-variabler mm men då tiden var knapp fick jag nöja mig så här.</p>
 
-                    <p><strong>Några tankar kring SQL så här långt?</p>
+                    <p><strong>Några tankar kring SQL så här långt?</strong></p>
 
                     <p>Kul att se vad man kan göra med SQL-kod mot en databas och hur och vilken data man kan hämta ut. Än så länge tycker jag det flyter på bra.</p>
+
+                </section>
+
+                <section>
+                    <p>24:e april 2017</p>
+                    <h2>Kmom03: PHP PDO och MySQL</h2>
+
+                    <p>Det här var ett stort om än bra kursmoment. Kul att få jobba med databas, formulär mm. Det börjar nu kännas som att jag hittar runt i anax rätt väl. </p>
+
+                    <p>Under detta kursmomen så försökte jag separera min kod så mycket som  möjligt från vyerna. Jag började med att skriva mestadelen av koden i routrarna vilket mot slutet av momentet fick till följde att dem är riktigt mastiga och innehåller mycket duplicerad kod. Dock räckte inte tiden till att skriva om koden och lägga ut den i klasser utan det är något att ta med sig till framtida moment.</p>
+
+                    <p><strong>Hur kändes det att jobba med PHP PDO, SQL och MySQL?</strong></p>
+
+                    <p>Inga problem här. SQL och PHP's PDO är ganska lätthanterligt och det är inga direkt problem att exekvera kod och jobba mot en databas. Tycker det är riktigt smidigt.</p>
+
+                    <p><strong>Reflektera kring koden du skrev för att lösa uppgifterna, klasser, formulär, integration Anax Lite?</strong></p>
+
+                    <p>Jag börjad emed att ta en titt på anax egna databasklass men beslöt mig sen för att börja skriva en egen. Den är sedan inkluderad i $app och använder sig av en configfil liknande navbaren fårn föregående moment. Det gick rätt bra under den första uppgiften. Dock blev min databasklass väl specifik för just användarinloggningen och kanske skulle göras om till en sådan klass istället. Under den andra uppgiften så la jag in de 2 funktioner executerFechAll & execute från anax in i min egen databsklass och anropar dem med sql kod. Känns tillräckligt istället för att skriva en ny metod för varje sql-sats.</p>
+
+                    <p>Som tidigare nämnt så la jag mestadelen av min kod i routrarna vilket fick till följd att mina 2 routerfiler user och admin nu är rätt stora. Om jag gjorde uppgfiften igen skulle jag nog brutit ut kod här och lagt i ett par egna klasser eller likn.</p>
+
+                    <p><strong>Känner du dig hemma i ramverket, dess komponenter och struktur?</strong></p>
+
+                    <p>Så här efter 3 kursmoment så börjar jag känna mig mer och mer hemma i anax. Under detta moment använde jag även mig av de inbyggda metoderna för redirect och för at hämta GET och POST. </p>
+
+                    <p><strong>Hur bedömmer du svårighetsgraden på kursens inledande kursmoment, känner du att du lär dig något/bra saker?</strong></p>
+
+                    <p>Svårighetsgraden ligger absolut på en lagom nivå. Det är bra saker som gås igenom. Dock är längden på det här kursmomentet alldeles för långt. Jag har inte haft tid nog att reflektera över min kod och skriva om det som blev mindre bra. Likaså att försöka hålla koden så DRY som mjöligt har fått strya på foten. Som det är nu är mycket kod duplicerad.</p>
 
                 </section>
 

@@ -20,14 +20,18 @@ $app->url       = new \Anax\Url\Url();
 $app->router    = new \Anax\Route\RouterInjectable();
 $app->view      = new \Anax\View\ViewContainer();
 $app->session   = new \Talm\Session\Session();
-$app->navbar    = new \Talm\Navbar\Navbar();
 $app->calendar  = new \Talm\Calendar\Calendar();
+$app->cookie    = new \Talm\Cookie\Cookie();
 
-// Update navbar config with values from config file
+// Navbar
+$app->navbar    = new \Talm\Navbar\Navbar();
 $app->navbar->configure("navbar.php");
-
-// Inject $app into navbar
 $app->navbar->setApp($app);
+
+// Database
+$app->db        = new \Talm\Database\Database();
+$app->db->configure("database.php");
+$app->db->setApp($app);
 
 // Init request object
 $app->request->init();
