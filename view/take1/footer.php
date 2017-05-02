@@ -3,7 +3,7 @@
                 <div class="row">
                     <footer class="site-footer">
                     
-                        <p>&copy; 2017 Tobias Almroth</p>
+                        <?= $app->content->getBlock("footer") ?>
 
                     </footer>
                 </div>

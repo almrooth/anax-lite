@@ -32,6 +32,21 @@ return [
             "route" => "about",
             "items" => []
         ],
+        "text" => [
+            "text" => "TextFilter",
+            "route" => "content/test",
+            "items" => []
+        ],
+        "pages" => [
+            "text" => "Sidor",
+            "route" => "content/pages",
+            "items" => []
+        ],
+        "blog" => [
+            "text" => "Blogg",
+            "route" => "content/blog",
+            "items" => []
+        ],
         "login" => [
             "text" => "Intranät",
             "route" => "login",

@@ -36,7 +36,7 @@ class Database implements \Anax\Common\ConfigureInterface, \Anax\Common\AppInjec
 
     public function addUser($uname, $pass, $type = "user")
     {
-        $stmt = $this->db->prepare("INSERT INTO users VALUES ('$uname', '$pass', '$type')");
+        $stmt = $this->db->prepare("INSERT INTO users VALUES ($uname, $pass, $type)");
         $stmt->execute();
     }
 
@@ -127,5 +127,43 @@ class Database implements \Anax\Common\ConfigureInterface, \Anax\Common\AppInjec
         }
 
         return $sth;
+    }
+
+    /**
+     * Return last insert id from an INSERT.
+     *
+     * @return void
+     */
+    public function lastInsertId()
+    {
+        return $this->db->lastInsertId();
+    }
+
+    /**
+     * Through exception with detailed message.
+     *
+     * @param PDOStatement $sth statement with error
+     * @param string       $sql     statement to execute
+     * @param array        $param   to match ? in statement
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function statementException($sth, $sql, $param)
+    {
+        throw new \Exception(
+            $sth->errorInfo()[2]
+            . "<br><br>SQL ("
+            . substr_count($sql, "?")
+            . " params):<br><pre>$sql</pre><br>PARAMS ("
+            . count($param)
+            . "):<br><pre>"
+            . implode($param, "\n")
+            . "</pre>"
+            . ((count(array_filter(array_keys($param), 'is_string')) > 0)
+                ? "WARNING your params array has keys, should only have values."
+                : null)
+        );
     }
 }

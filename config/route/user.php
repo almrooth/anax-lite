@@ -7,10 +7,14 @@ $app->router->add("login", function () use ($app) {
         $app->response->redirect($app->url->create("profile"));
     }
 
+    $status = $app->session->get("status");
+
     $app->view->add("take1/header", ["title" => "Login"]);
     $app->view->add("navbar2/navbar");
-    $app->view->add("user/login");
+    $app->view->add("user/login", ["status" => $status]);
     $app->view->add("take1/footer");
+
+    $app->session->delete("status");
 
     $app->response->setBody([$app->view, "render"])->send();
 });
@@ -35,14 +39,15 @@ $app->router->add("validate", function () use ($app) {
 
                 $app->response->redirect("profile");
             } else {
-                echo "Användarnamn eller lösenord felaktigt!";
-                header("Refresh:2; login");
+                $app->session->set("status", "Användarnamn eller lösenord felaktigt!");
+                $app->response->redirect("login");
             }
         } else {
-            echo "Användare finns inte!";
-            header("Refresh:2; login");
+            $app->session->set("status", "Användare finns inte!");
+            $app->response->redirect("login");
         }
     } else {
+        $app->session->set("status", "Ett fält är blankt!");
         $app->response->redirect("login");
     } 
 });
@@ -52,17 +57,21 @@ $app->router->add("register", function () use ($app) {
     $app->session->start();
     $app->db->connect();
 
+    $status = $app->session->get("status");
 
     $app->view->add("take1/header", ["title" => "Sign up"]);
     $app->view->add("navbar2/navbar");
-    $app->view->add("user/register");
+    $app->view->add("user/register", ["status" => $status]);
     $app->view->add("take1/footer");
+
+    $app->session->delete("status");
 
     $app->response->setBody([$app->view, "render"])->send();
 });
 
 $app->router->add("handle_register", function () use ($app) {
 
+    $app->session->start();
     $app->db->connect();
 
     $uname = htmlentities($app->request->getPost("uname"));
@@ -71,19 +80,20 @@ $app->router->add("handle_register", function () use ($app) {
 
     if ($app->db->exists($uname) == false) {
         if ($pass != $pass2) {
-            echo "Lösenorden är inte samma!";
-            header("Refresh:2; register");
+            $app->session->set("status", "Lösenorden matchar inte!");
+            $app->response->redirect("register");
         } else {
             $crypt_pass = password_hash($pass, PASSWORD_DEFAULT);
+            
+            $sql = "INSERT INTO users VALUES (?, ?, ?, ?)";
+            $app->db->execute($sql, [$uname, $crypt_pass, "user", ""]);
 
-            $app->db->addUser($uname, $crypt_pass);
-
-            echo "Användare '$uname' skapad.";
-            header("Refresh:2; login");
+            $app->session->set("status", "Användare '$uname' skapad!");
+            $app->response->redirect("login");
         }
     } else {
-        echo "Användarnamnet är upptaget!";
-        header("Refresh:2; register");
+        $app->session->set("status", "Användarnamnet är upptaget!");
+        $app->response->redirect("register");
     }
 });
 

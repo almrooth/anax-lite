@@ -2,6 +2,8 @@
 
     <h1>Registrera</h1>
 
+    <p><?= $status ?></p>
+
     <form action="<?= $app->url->create('handle_register') ?>" method="POST">
         <div>
             <label>Användarnamn: </label>

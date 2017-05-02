@@ -1,6 +1,8 @@
 <main class="site-main site-profile">
 
     <h1>Logga in</h1>
+
+    <p><?= $status ?></p>
     
     <form action="<?= $app->url->create('validate') ?>" method="POST">
         <div>

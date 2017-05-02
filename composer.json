@@ -14,11 +14,14 @@
         "anax/router": "^1.0",
         "anax/response": "^1.0",
         "anax/view": "^1.0",
-        "anax/database": "^1.0"
+        "michelf/php-markdown": "^1.7"
     },
     "autoload": {
         "psr-4": {
             "Talm\\": "src/"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     }
 }

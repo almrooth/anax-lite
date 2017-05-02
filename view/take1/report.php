@@ -100,6 +100,36 @@
 
                 </section>
 
+                <section>
+                    <p>1:a maj 2017</p>
+                    <h2>Kmom04: Lagra innehåll i databasen</h2>
+
+                    <p>Bra kursmoment där man har fått öva mycket på sql, formulär, hantering av get, post mm. Dock har också dett amoment varit rätt omfattande så något större arbete på stylingen har inte hunnits med. Så här när momentet är slut så märker jag ändå att jag lärt mig en hel del och har flera olika tankar och ideer på hur jag skulle kunna skiva om min kod till det bättre.</p>
+
+                    <p><strong>Finns något att säga kring din klass för texfilter, eller rent allmänt om formattering och filtrering av text som sparas i databasen av användaren?</strong></p>
+
+                    <p>Jag skrev en "egen" TextFormat-klass som liknar cTextFilter mycket. Runt om på sidan filtrerar jag inkommande kod i POST/GET-variabler med htmlentities. Undantaget är vid innehållsadministrationen där jag låter andändare lagra valfri information. Den informationen körs sen igenom min TextFormat-klass innan utskrift istället.</p>
+
+                    <p><strong>Berätta hur du tänkte när du strukturerade klasserna och databasen för webbsidor och bloggposter?</strong></p>
+
+                    <p>Initialt funderade jag på att skapa en Content-klass vilket jag också gjorde. Sen allt eftersom blev det ändå att mestadelen av SQL-koden och annan funktionalitet skrevs i routrarna. I slutändan hamnade endast en metod i Content-klassen, min getBlock-metod som man kan anropa på valfri plats/sida ("$app->content->getBlock()"). Det är också något som jag gör i min footer över hela siten.</p>
+
+                    <p><strong>Förklara vilka routes som används för att demonstrera funktionaliteten för webbsidor och blogg (så att en utomstående kan testa).</strong></p>
+
+                    <p>I min navbar har jag 3 länkar. "TextFilter" som visar exempel på min TextFormat-klass, "Sidor" som visar skapade och publicerade sidor och "Blogg" som visar blogginlägg. </p>
+
+                    <p>För att se admingränssnittet för innehåll måste man logga in via länken intranät. doe/doe eller admin/admin. Sen får man gå in på "Redigera sidinnehåll" och då får man upp en översikt över innehållet på sidan. Samt en meny och länkar till de olika delarna.</p>
+
+                    <p><strong>Hur känns det att dokumentera databasen så här i efterhand?</strong></p>
+
+                    <p>Lätt och smidigt med MySQL Workbenchs inbyggda funktion för det. Det gör det lätt att få en överblick över hur ens databas/tabeller ser ut. Kanske inte jättenödvändigt nu men vid ett större projekt så säkerligen.</p>
+
+                    <p><strong>Om du är självkritisk till koden du skriver i Anax Lite, ser du förbättringspotential och möjligheter till alternativ struktur av din kod?</strong></p>
+
+                    <p>Absolut! Jag ser rätt stor förbättringspotential med min kod. Kanske största är att flytta ut en större mängd kod från routrarna till separata klasser. Det är dock ännu inget som hunnits med. Men förmodligen något som jag skulle göra om jag gjorde om sidan. Därutöver kan jag nog erkänna att min styling inte ser direkt revolutionerande ut. Det har dock inte funnits tid till detta och jag har prioriterat att fokusera på funktionaliteten.</p>
+
+                </section>
+
             </main>
         </div>
     </div>

@@ -17,6 +17,7 @@ if ($app->session->get("utype") == "admin") {
 
     <p><a href="<?= $app->url->create('profile_edit') ?>">Uppdatera profil</a></p>
     <p><a href="<?= $app->url->create('pass_change') ?>">Byt lösenord</a></p>
+    <p><a href="<?= $app->url->create('content/admin') ?>">Redigera sidinnehåll</a></p>
     <p><?= $html ?></p>
     <p><a href="<?= $app->url->create('logout') ?>">Logga ut</a></p>
 </main>
