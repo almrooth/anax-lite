@@ -1,5 +1,5 @@
--- USE oophp;
--- SHOW TABLES;
+USE toab16;
+SHOW TABLES;
 
 SET NAMES utf8;
 

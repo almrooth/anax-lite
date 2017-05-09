@@ -30,7 +30,7 @@ $app->navbar->setApp($app);
 
 // Database
 $app->db        = new \Talm\Database\Database();
-// $app->db->configure("database-local.php");
+//$app->db->configure("database-local.php");
 $app->db->configure("database.php");
 $app->db->setApp($app);
 
@@ -40,6 +40,10 @@ $app->textformat = new \Talm\Textformat\Textformat();
 // Content class
 $app->content    = new \Talm\Content\Content();
 $app->content->setApp($app);
+
+// Webshop class
+$app->webshop    = new \Talm\Webshop\Webshop();
+$app->webshop->setApp($app);
 
 // Init request object
 $app->request->init();

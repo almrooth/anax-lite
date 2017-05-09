@@ -130,6 +130,34 @@
 
                 </section>
 
+                <section>
+                    <p>9:e maj 2017</p>
+                    <h2>Kmom05: Programmera i databasen</h2>
+
+                    <p>Intressant kursmoment det här med mycket fokus på databas och SQL.</p>
+
+                    <p><strong>Gick det bra att komma igång med det vi kallar programmering av databas, med transaktioner, lagrade procedurer, triggers, funktioner?</strong></p>
+
+                    <p>Både ja och nej. Det mesta gick bra och flöt på som det skulle. En sak om var lite knivig och som jag fick googla en del var hur man loopar igenom en resultset rad för rad. Löste det sen med "cursors" vilket visade sig funka bra.</p>
+
+                    <p><strong>Hur är din syn på att programmera på detta viset i databasen?</strong></p>
+
+                    <p>Jag är lite kluven. Å ena sidan kan det göra det lättare för användare att implementera databasen om han inte är lika kunnig inom SQL. Det kan ju också göra det lättare för andra att komma in och använda databsen om den växer och blir större och större. På det viset kan jag se en del fördelar. Likaså när man skapar vyer över innehåll som finns i flera tabeller.</p>
+
+                    <p>När det kommer till nackdelar så tycker jag det är bra mycket krångligare att "programmera" i SQL än i exempelvis PHP. Det kanske kan vara för att man inte är lika van vid SQL som PHP men det nu har vi kommit en bit och det känns fortfarande rätt omständigt.</p>
+
+                    <p>Det vore intressant att veta "best practises" för när man gör vilket. Dvs. när man hoppar in i databasen och börjar programmera kontra när man gör det i något annat språk utanför databasen.</p>
+
+                    <p><strong>Några reflektioner kring din kod för backenden till webbshopen?</strong></p>
+
+                    <p>Det känns nu som man börjar komma in lite bättre i PHP och anax-lite. Jag skapade en webshop klass som anropas från routrarna. På det sättet fick jag bort en hel del kod från routrarna som gör att det på de flesta platser ser bra mycket mer städat ut än tidigare kursmoment.</p>
+
+                    <p><strong>Något du vill säga om koden generellt i och kring Anax Lite?</strong></p>
+
+                    <p>Inte direkt. Det känns som jag skulle vilja skriva om en stor del av min egna kod nu. Lite synd att tiden inte riktigt finns till. Men man får se till att prioritera.</p>
+
+                </section>
+
             </main>
         </div>
     </div>

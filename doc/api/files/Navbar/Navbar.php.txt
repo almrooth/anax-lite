@@ -1,0 +1,60 @@
+<?php
+
+namespace Talm\Navbar;
+
+class Navbar implements \Anax\Common\ConfigureInterface, \Anax\Common\AppInjectableInterface
+{
+    use \Anax\Common\ConfigureTrait;
+    use \Anax\Common\AppInjectableTrait;
+
+
+    public function listify($items)
+    {
+        $html = "<ul>";
+
+        foreach ($items as $item) {
+            $text = $item["text"];
+            $route = $item["route"];
+            $url = $this->app->url->create($route);
+            $active = $this->app->request->getRoute() == $route ? "active" : "";
+
+            $html .= "<li class='$active'><a href='$url'>$text</a>";
+
+            if (!empty($item["items"])) {
+                $html .= $this->listify($item["items"]);
+            }
+
+            $html .= "</li>";
+        }
+
+        $html .= "</ul>";
+
+        return $html;
+    }
+
+    /**
+     * Get HTML for navbar
+     *
+     * @return string HTML with navbar
+     */
+    public function getHtml()
+    {
+        $navbarClass = $this->config["config"]["navbar-class"];
+        $items = $this->config["items"];
+
+        $html = "<nav class='$navbarClass'>";
+        /*foreach ($items as $item) {
+            $text = $item["text"];
+            $route = $item["route"];
+            $url = $this->app->url->create($route);
+            $active = $this->app->request->getRoute() == $route ? "active" : "";
+            
+            $html .= "<li class='$active'><a href='$url'>$text</a></li>";
+        }*/
+        $html .= $this->listify($items);
+        $html .= "</nav>";
+
+        return $html;
+    }
+}
+

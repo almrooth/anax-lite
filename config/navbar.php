@@ -52,5 +52,10 @@ return [
             "route" => "login",
             "items" => []
         ],
+        "webshop" => [
+            "text" => "Webshop",
+            "route" => "webshop/products",
+            "items" => []
+        ],
     ]
 ];
