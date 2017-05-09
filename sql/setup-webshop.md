@@ -26,7 +26,7 @@ CALL addToShoppingCart(item_id, nr_of_items);
 CALL deleteFromShoppingCart(item_id, nr_of_items);
 ```
 
-## Beställning (order)
+## Order
 
 **View all orders**
 ```sql
